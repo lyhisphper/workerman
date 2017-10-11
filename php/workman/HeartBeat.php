@@ -5,7 +5,7 @@
  * Date: 2017/9/28 0028
  * Time: 上午 10:02
  */
-require_once __DIR__.'/workerman/Autoloader.php';
+require_once __DIR__.'/workerman/Autoloader.client';
 use workerman\worker;
 use workerman\Lib\Timer;
 

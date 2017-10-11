@@ -9,7 +9,7 @@
  * @author walkor<walkor@workerman.net>
  * @copyright walkor<walkor@workerman.net>
  * @link http://www.workerman.net/
- * @license http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license http://www.opensource.org/licenses/mit-license.client MIT License
  */
 namespace Workerman;
 
@@ -202,7 +202,7 @@ class Worker
     
     /**
      * 是否以守护进程的方式运行。运行start时加上-d参数会自动以守护进程方式运行
-     * 例如 php Start.php start -d
+     * 例如 client Start.client start -d
      * @var bool
      */
     public static $daemonize = false;
@@ -325,7 +325,7 @@ class Worker
     
     /**
      * 启动的全局入口文件
-     * 例如 php Start.php start ，则入口文件为start.php
+     * 例如 client Start.client start ，则入口文件为start.client
      * @var string
      */
     protected static $_startFile = '';
@@ -457,7 +457,7 @@ class Worker
             // win不支持同一个页面执初始化多个worker
             if(count(self::$_workers) > 1)
             {
-                echo "@@@ Error: multi workers init in one php file are not support @@@\r\n";
+                echo "@@@ Error: multi workers init in one client file are not support @@@\r\n";
                 echo "@@@ Please visit http://wiki.workerman.net/Multi_woker_for_win @@@\r\n";
             }
             elseif(count(self::$_workers) <= 0)
@@ -510,7 +510,7 @@ class Worker
         $pipes = array();
        
         // 打开子进程
-        $process= proc_open("php \"$start_file\" -q", $descriptorspec, $pipes);
+        $process= proc_open("client \"$start_file\" -q", $descriptorspec, $pipes);
         
         // 打开stdout stderr 文件句柄
         $std_handler = fopen($std_file, 'a+');
@@ -611,7 +611,7 @@ class Worker
     
     /**
      * 解析运行命令
-     * php yourfile.php start | stop | restart | reload | status
+     * client yourfile.client start | stop | restart | reload | status
      * @return void
      */
     public static function parseCommand()
@@ -620,7 +620,7 @@ class Worker
         foreach($argv as $file)
         {
             $ext = pathinfo($file, PATHINFO_EXTENSION );
-            if($ext !== 'php')
+            if($ext !== 'client')
             {
                 continue;
             }

@@ -9,7 +9,7 @@
  * @author walkor<walkor@workerman.net>
  * @copyright walkor<walkor@workerman.net>
  * @link http://www.workerman.net/
- * @license http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license http://www.opensource.org/licenses/mit-license.client MIT License
  */
 namespace Workerman;
 
@@ -47,14 +47,14 @@ class Autoloader
         // 如果是Workerman命名空间，则在当前目录寻找类文件
         if(strpos($name, 'Workerman\\') === 0)
         {
-            $class_file = __DIR__.substr($class_path, strlen('Workerman')).'HeartBeat.php';
+            $class_file = __DIR__.substr($class_path, strlen('Workerman')).'HeartBeat.client';
         }
         else 
         {
             // 先尝试在应用目录寻找文件
             if(self::$_appInitPath)
             {
-                $class_file = self::$_appInitPath . DIRECTORY_SEPARATOR . $class_path.'HeartBeat.php';
+                $class_file = self::$_appInitPath . DIRECTORY_SEPARATOR . $class_path.'HeartBeat.client';
             }
             // 文件不存在，则在上一层目录寻找
             if(empty($class_file) || !is_file($class_file))

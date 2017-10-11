@@ -9,7 +9,7 @@
  * @author    有个鬼<42765633@qq.com>
  * @copyright 有个鬼<42765633@qq.com>
  * @link      http://www.workerman.net/
- * @license   http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license   http://www.opensource.org/licenses/mit-license.client MIT License
  */
 namespace Workerman\Events;
 

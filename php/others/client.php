@@ -1,6 +1,6 @@
 <?php
 $client = new SoapClient(null,array(
-    'location'=>"http://www.practicephp.com/proxy.php",
+    'location'=>"http://www.practicephp.com/proxy.client",
     'url'=>'http://test-url',
     'style'=>SOAP_RPC,
     "use"=>SOAP_ENCODED,

@@ -1,7 +1,7 @@
 <?php
 $address = "127.0.0.1:8333";
 if(!isset($argv[1])){
-    exit("use php client.php \$file_path\n");
+    exit("use client client.client \$file_path\n");
 }
 //argv命令行文件路径
 $file_to_transfer = trim($argv[1]);

@@ -9,7 +9,7 @@
  * @author    walkor<walkor@workerman.net>
  * @copyright walkor<walkor@workerman.net>
  * @link      http://www.workerman.net/
- * @license   http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license   http://www.opensource.org/licenses/mit-license.client MIT License
  */
 namespace Workerman\Protocols;
 
@@ -396,7 +396,7 @@ class Http
     }
 
     /**
-     * End, like call exit in php-fpm.
+     * End, like call exit in client-fpm.
      *
      * @param string $msg
      * @throws \Exception

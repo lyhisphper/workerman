@@ -9,7 +9,7 @@
  * @author    walkor<walkor@workerman.net>
  * @copyright walkor<walkor@workerman.net>
  * @link      http://www.workerman.net/
- * @license   http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license   http://www.opensource.org/licenses/mit-license.client MIT License
  */
 namespace Workerman;
 
@@ -160,16 +160,16 @@ class WebServer extends Worker
         $workerman_path_info      = pathinfo($workerman_path);
         $workerman_file_extension = isset($workerman_path_info['extension']) ? $workerman_path_info['extension'] : '';
         if ($workerman_file_extension === '') {
-            $workerman_path           = ($len = strlen($workerman_path)) && $workerman_path[$len - 1] === '/' ? $workerman_path . 'index.php' : $workerman_path . '/index.php';
-            $workerman_file_extension = 'php';
+            $workerman_path           = ($len = strlen($workerman_path)) && $workerman_path[$len - 1] === '/' ? $workerman_path . 'index.client' : $workerman_path . '/index.client';
+            $workerman_file_extension = 'client';
         }
 
         $workerman_root_dir = isset($this->serverRoot[$_SERVER['SERVER_NAME']]) ? $this->serverRoot[$_SERVER['SERVER_NAME']] : current($this->serverRoot);
 
         $workerman_file = "$workerman_root_dir/$workerman_path";
 
-        if ($workerman_file_extension === 'php' && !is_file($workerman_file)) {
-            $workerman_file = "$workerman_root_dir/index.php";
+        if ($workerman_file_extension === 'client' && !is_file($workerman_file)) {
+            $workerman_file = "$workerman_root_dir/index.client";
             if (!is_file($workerman_file)) {
                 $workerman_file           = "$workerman_root_dir/index.html";
                 $workerman_file_extension = 'html';
@@ -189,13 +189,13 @@ class WebServer extends Worker
 
             $workerman_file = realpath($workerman_file);
 
-            // Request php file.
-            if ($workerman_file_extension === 'php') {
+            // Request client file.
+            if ($workerman_file_extension === 'client') {
                 $workerman_cwd = getcwd();
                 chdir($workerman_root_dir);
                 ini_set('display_errors', 'off');
                 ob_start();
-                // Try to include php file.
+                // Try to include client file.
                 try {
                     // $_SERVER.
                     $_SERVER['REMOTE_ADDR'] = $connection->getRemoteIp();
